@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Data URL</title>
+</head>
+
+<body>
+	<div class="container">
+	
+		<h1>URL Encoder</h1>
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb">
+		    <li class="breadcrumb-item"><a href="./">Home</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">URL Encoder</li>
+		  </ol>
+		</nav>
+		
+		<form>
+			<div class="form-group">
+				<textarea class="js-text text"></textarea>
+			</div>
+			<div class="form-group">
+				<button class="js-encode">Encode</button>
+				<button class="js-decode">Decode</button>
+			</div>
+		</form>
+		
+	</div>
+</body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous">
+<style>
+	.text {
+		height: 200px;
+		width: 100%;
+	}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.js"	integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="	crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function($) {
+		var stopEvent = function(e) {
+			e.preventDefault();
+	        e.stopPropagation();
+		};
+		
+		var text = $('.js-text');
+		
+		$('.js-encode').on('click', function(e) {
+			stopEvent(e);
+			text.val(encodeURIComponent(text.val()).replace(/'/g,"%27").replace(/"/g,"%22"));
+		});
+		$('.js-decode').on('click', function(e) {
+			stopEvent(e);
+			text.val(decodeURIComponent(text.val().replace(/\+/g,  " ")));
+		});
+	});
+</script>
+
+</html>
