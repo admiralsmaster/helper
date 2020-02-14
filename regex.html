@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Regex Java</title>
+</head>
+
+<body>
+	<div class="container">
+	
+		<h1>Regex Java</h1>
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb">
+		    <li class="breadcrumb-item"><a href="./">Home</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">Regex Java</li>
+		  </ol>
+		</nav>
+		
+		<form>
+			<div class="form-group">
+				<label for="customInput1">Pattern</label>
+				<input id="customInput1" type="text" class="js-pattern form-control required" required>
+			</div>
+			<div class="form-group">
+				<label for="customInput2">Replacement</label>
+				<input id="customInput2" type="text" class="js-replace form-control">
+				
+			</div>
+			<div class="js-flags form-group row row-cols-1 row-cols-sm-2 row-cols-md-3">
+				<div class="col">
+					<div class="custom-control custom-switch">
+					  <input type="checkbox" class="custom-control-input" id="customSwitch1">
+					  <label class="custom-control-label" for="customSwitch1">CASE_INSENSITIVE</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="custom-control custom-switch">
+					  <input type="checkbox" class="custom-control-input" id="customSwitch2">
+					  <label class="custom-control-label" for="customSwitch2">MULTILINE</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="custom-control custom-switch">
+					  <input type="checkbox" class="custom-control-input" id="customSwitch3">
+					  <label class="custom-control-label" for="customSwitch3">DOTALL</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="custom-control custom-switch">
+					  <input type="checkbox" class="custom-control-input" id="customSwitch4">
+					  <label class="custom-control-label" for="customSwitch4">UNICODE_CASE</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="custom-control custom-switch">
+					  <input type="checkbox" class="custom-control-input" id="customSwitch5">
+					  <label class="custom-control-label" for="customSwitch5">CANON_EQ</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="custom-control custom-switch">
+					  <input type="checkbox" class="custom-control-input" id="customSwitch6">
+					  <label class="custom-control-label" for="customSwitch6">UNIX_LINES</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="custom-control custom-switch">
+					  <input type="checkbox" class="custom-control-input" id="customSwitch7">
+					  <label class="custom-control-label" for="customSwitch7">LITERAL</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="custom-control custom-switch">
+					  <input type="checkbox" class="custom-control-input" id="customSwitch8">
+					  <label class="custom-control-label" for="customSwitch8">UNICODE_CHARACTER_CLASS</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="custom-control custom-switch">
+					  <input type="checkbox" class="custom-control-input" id="customSwitch9">
+					  <label class="custom-control-label" for="customSwitch9">COMMENTS</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="customInput3">
+					Texts
+					<!-- https://cdn.jsdelivr.net/npm/bootstrap-icons@1.0.0-alpha2/icons/x-circle.svg -->
+					<svg focusable="false" class="icon-add js-add bi bi-x-circle" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					  <path fill-rule="evenodd" d="M10 17a7 7 0 100-14 7 7 0 000 14zm0 1a8 8 0 100-16 8 8 0 000 16z" clip-rule="evenodd"/>
+					  <path fill-rule="evenodd" d="M12.646 13.354l-6-6 .708-.708 6 6-.708.708z" clip-rule="evenodd"/>
+					  <path fill-rule="evenodd" d="M7.354 13.354l6-6-.708-.708-6 6 .708.708z" clip-rule="evenodd"/>
+					</svg>
+				</label>
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">
+							<!-- https://cdn.jsdelivr.net/npm/bootstrap-icons@1.0.0-alpha2/icons/x-circle.svg -->
+							<svg focusable="false" class="icon-remove js-remove bi bi-x-circle" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							  <path fill-rule="evenodd" d="M10 17a7 7 0 100-14 7 7 0 000 14zm0 1a8 8 0 100-16 8 8 0 000 16z" clip-rule="evenodd"/>
+							  <path fill-rule="evenodd" d="M12.646 13.354l-6-6 .708-.708 6 6-.708.708z" clip-rule="evenodd"/>
+							  <path fill-rule="evenodd" d="M7.354 13.354l6-6-.708-.708-6 6 .708.708z" clip-rule="evenodd"/>
+							</svg>
+						</span>
+			        </div>
+					<textarea id="customInput3" class="js-text form-control required" required></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<button class="js-test btn btn-primary" disabled>Test</button>
+			</div>
+		</form>
+		
+		<a id="finished"></a>
+		<div id="js-placeholder"></div>
+		
+	</div>
+</body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous">
+<style>
+	td[scope="col"] {
+		font-weight: 700;
+	}
+	.icon-add {
+		transform:rotate(45deg);
+  		-ms-transform:rotate(45deg);
+  		-moz-transform:rotate(45deg);
+  		-webkit-transform:rotate(45deg);
+  		-o-transform:rotate(45deg);
+  		cursor:pointer;
+	}
+	.icon-remove {
+		color: #ced4da;
+	}
+	.js-removeable .icon-remove {
+		color: #000;
+		cursor:pointer;
+	}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function($) {
+		var stopEvent = function(e) {
+			e.preventDefault();
+	        e.stopPropagation();
+		};
+		var placeholder = $('#js-placeholder');
+		var pattern = $('.js-pattern');
+		var flags = $('.js-flags input:checkbox');
+		var replace = $('.js-replace');
+		var test = $('.js-test');
+		var requiredInput = $("input.required");
+		var add = $('.js-add');
+		
+		var createRequest = function() {
+			var texts = $('.js-text');
+			var data = {};
+			data.pattern = pattern.val();
+			if (replace.val()) {
+				data.replacement = replace.val();
+			}
+			data.texts = [];
+			texts.each(function(){
+				if($(this).val()) {
+					data.texts.push($(this).val());
+				}
+			});
+			data.flags = [];
+			flags.filter(':checked').each(function(){
+				var label = $('label[for="' + $(this).attr('id') + '"]').html();
+				data.flags.push(label);
+			});
+			return data;
+		};
+		var printMatchItem = function(item) {
+			var result = '';
+			if (item) {
+				result += '#' + item['number'] + ' ';
+				result += '(' + item['start'] + '-' + item['end'] + '): ';
+				result += item['text'];
+			}
+			return result;
+		};
+		var printMatch = function(match) {
+			var result = '';
+			if (match) {
+				result += 'Group Count: ' + match['groupCount'] + '<br>';
+				$.each(match['matches'], function(i, item) {
+					result += printMatchItem(item) + '<br>';
+				});
+			} 
+			return result;
+		};
+		var print = function(data) {
+			$.each(data.items, function(i, item) {
+				var table = $('<table />').addClass('table');
+				placeholder.append(table);
+				table.append('<thead><tr><td scope="col">Text</td><td scope="col">'+item['text']+'</td></tr></thead>')
+				var tbody = $('<tbody />');
+				table.append(tbody);
+				if(item['replaceAll']) {
+					tbody.append($('<tr><td scope="col">Replace All</td><td>'+item['replaceAll']+'</td></tr>'));
+				}
+				if (item['replaceFirst']) {
+					tbody.append($('<tr><td scope="col">Replace First</td><td>'+item['replaceFirst']+'</td></tr>'));
+				}
+				tbody.append($('<tr><td scope="col">Split</td><td>'+item['splits'].join(', ')+'</td></tr>'));
+				
+				tbody.append($('<tr><td scope="col">Looking At</td><td>'+item['lookingAt']+'</td></tr>'));
+				if (item['lookingAt']) {
+					tbody.append($('<tr><td scope="col"></td><td>'+printMatch(item['lookingAtMatch'])+'</td></tr>'));
+				}
+				tbody.append($('<tr><td scope="col">Matches</td><td>'+item['matches']+'</td></tr>'));
+				tbody.append($('<tr><td scope="col">Find</td><td>'+(item['finds'] && item['finds'].length > 0 ? true : false)+'</td></tr>'));
+				if (item['finds']) {
+					$.each(item['finds'], function(i, match) {
+						tbody.append($('<tr><td scope="col"></td><td>'+printMatch(match)+'</td></tr>'));
+					});
+				}
+			});
+		};
+		
+		test.on('click', function(e) {
+			stopEvent(e);
+			var data = createRequest();
+			
+			//console.log(data);
+			$.ajax('https://f37vvlzptd.execute-api.us-east-1.amazonaws.com/production/regex', {
+				method: 'post',
+				data: JSON.stringify(data),
+				contentType: "application/json; charset=utf-8",
+			    dataType: "json"
+			}).done(function(resp){
+				//console.log(resp);
+				placeholder.html('');
+				print(resp);
+				window.location.href = '#finished';
+			});
+		});
+		
+		requiredInput.on('keyup', function () {
+	        var valid = true;
+	        $.each(requiredInput, function (index, value) {
+	            if(!$(value).val()){
+	               valid = false;
+	            }
+	        });
+            test.attr('disabled', !valid);
+	    });
+		
+		add.on('click', function(e) {
+			stopEvent(e);
+			var group = $('.js-text').parents('.input-group');
+			
+			var newGroup = group.filter(':first').clone();
+			newGroup.find('.js-text').attr('id', null);
+			var newBox = $('<div class="js-removeable form-group"></div>');
+			newBox.html(newGroup);
+			group.filter(':last').parents('.form-group').after(newBox);
+		});
+		
+		$(document).on('click', '.js-removeable .js-remove', function(e) {
+			var current = $(this).parents('.form-group');
+			current.remove();
+		});
+	});
+</script>
+
+</html>
