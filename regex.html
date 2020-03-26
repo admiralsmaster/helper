@@ -181,7 +181,7 @@
 			if (item) {
 				result += '#' + item['number'] + ' ';
 				result += '(' + item['start'] + '-' + item['end'] + '): ';
-				result += item['text'];
+				result += '<b>' + item['text'] + '</b>';
 			}
 			return result;
 		};
@@ -196,9 +196,9 @@
 			return result;
 		};
 		var print = function(data) {
+			var table = $('<table />').addClass('table');
+			placeholder.append(table);
 			$.each(data.items, function(i, item) {
-				var table = $('<table />').addClass('table');
-				placeholder.append(table);
 				table.append('<thead><tr><td scope="col">Text</td><td scope="col">'+item['text']+'</td></tr></thead>')
 				var tbody = $('<tbody />');
 				table.append(tbody);
@@ -257,7 +257,7 @@
 			var group = $('.js-text').parents('.input-group');
 			
 			var newGroup = group.filter(':first').clone();
-			newGroup.find('.js-text').attr('id', null);
+			newGroup.find('.js-text').attr('id', null).val('');
 			var newBox = $('<div class="js-removeable form-group"></div>');
 			newBox.html(newGroup);
 			group.filter(':last').parents('.form-group').after(newBox);
